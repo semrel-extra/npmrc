@@ -1,9 +1,9 @@
 const { test } = require('uvu')
 const assert = require('node:assert')
-const toposource = require('@semrel-extra/npmrc')
+const npmrc = require('@semrel-extra/npmrc')
 
 test('index (cjs)', () => {
-  assert.ok(typeof toposource.foo === 'string')
+  assert.ok(typeof npmrc.formatNpmrc === 'function')
 })
 
 test.run()

@@ -1,6 +1,11 @@
 # dotnpmrc
+
+[![CI](https://github.com/semrel-extra/npmrc/actions/workflows/ci.yaml/badge.svg)](https://github.com/semrel-extra/npmrc/actions/workflows/ci.yaml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/feba9cfac949309eeaad/maintainability)](https://codeclimate.com/github/semrel-extra/npmrc/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/feba9cfac949309eeaad/test_coverage)](https://codeclimate.com/github/semrel-extra/npmrc/test_coverage)
+
 > `.npmrc` formatter
- 
+
 ## Usage
 ```ts
 import {formatNpmrc} from 'dotnpmrc'

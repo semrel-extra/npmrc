@@ -1,3 +1,8 @@
+## [0.1.2](https://github.com/semrel-extra/npmrc/compare/v0.1.1...v0.1.2) (2023-04-06)
+
+### Fixes & improvements
+* docs: add status badges ([82fc73b](https://github.com/semrel-extra/npmrc/commit/82fc73ba82685883acb5396c2b34351bdc8bcfd0))
+
 ## [0.1.1](https://github.com/semrel-extra/npmrc/compare/v0.1.0...v0.1.1) (2023-04-06)
 
 ### Fixes & improvements

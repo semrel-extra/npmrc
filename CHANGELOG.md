@@ -1,3 +1,8 @@
+## [0.1.1](https://github.com/semrel-extra/npmrc/compare/v0.1.0...v0.1.1) (2023-04-06)
+
+### Fixes & improvements
+* refactor: split `formatNpmrc` inners ([9bbad62](https://github.com/semrel-extra/npmrc/commit/9bbad62924c3012ecab0693a2ba14d7db634082d))
+
 ## [0.1.0](https://github.com/semrel-extra/npmrc/compare/v0.0.0...v0.1.0) (2023-04-06)
 
 ### Features

@@ -1,7 +1,7 @@
 {
   "name": "@semrel-extra/npmrc",
   "alias": "dotnpmrc",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": ".npmrc formatter",
   "main": "./target/cjs/index.js",
   "module": "./target/esm/index.mjs",

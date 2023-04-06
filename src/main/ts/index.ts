@@ -17,11 +17,30 @@ const credKeys = new Set(['_auth', '_authToken', 'username', '_password'])
 const credAliases = new Set(['auth', 'authToken', 'password'])
 
 // https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
-export const formatNpmrc = ({scopes = {}, root = {}, format}: INpmrcData): string => {
-  const config: Record<string, string> = {}
-  const registry = normalizeRegistry(root.registry || 'registry.npmjs.org')
+export const formatNpmrc = ({scopes, root, format}: INpmrcData): string =>
+  encode({
+    ...formatRoot(root, format),
+    ...formatScopes(scopes)
+  })
 
-  for (const [name, scope] of Object.entries(scopes)) {
+const formatRoot = (data: INpmrcData['root'] = {}, format?: string): Record<string, string> => {
+  const registry = normalizeRegistry(data?.registry || 'registry.npmjs.org')
+  const config: Record<string, string> = {}
+
+  for (const [_k, v, k = normalizeKey(_k)] of Object.entries(data)) {
+    if (format === 'npm9' && credKeys.has(k)) {
+      config[`${registry}:${k}`] = v || 'true'
+      continue
+    }
+    config[k] = v || 'true'
+  }
+  return config
+}
+
+const formatScopes = (data: INpmrcData['scopes'] = {}): Record<string, string> => {
+  const config: Record<string, string> = {}
+
+  for (const [name, scope] of Object.entries(data)) {
     for (const [k, v] of Object.entries(scope)) {
       if (k === 'registry') {
         config[`@${normalizeScope(name)}:${k}`] = v as string
@@ -30,16 +49,7 @@ export const formatNpmrc = ({scopes = {}, root = {}, format}: INpmrcData): strin
       config[`${normalizeRegistry(scope.registry)}:${normalizeKey(k)}`] =  v || 'true'
     }
   }
-
-  for (const [_k, v, k = normalizeKey(_k)] of Object.entries(root)) {
-    if (format === 'npm9' && credKeys.has(k)) {
-      config[`${registry}:${k}`] = v || 'true'
-      continue
-    }
-    config[k] = v || 'true'
-  }
-
-  return encode(config)
+  return config
 }
 
 const normalizeRegistry = (value: string): string => value

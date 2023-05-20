@@ -1,3 +1,8 @@
+## [0.1.3](https://github.com/semrel-extra/npmrc/compare/v0.1.2...v0.1.3) (2023-05-20)
+
+### Fixes & improvements
+* perf: up deps ([2ad4340](https://github.com/semrel-extra/npmrc/commit/2ad43409201549b7e5ea1e0b88c6fac454e98d9a))
+
 ## [0.1.2](https://github.com/semrel-extra/npmrc/compare/v0.1.1...v0.1.2) (2023-04-06)
 
 ### Fixes & improvements

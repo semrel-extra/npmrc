@@ -11,9 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install rename
-        run: sudo apt-get install -y rename
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -34,7 +31,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-22.04 ]
-        node-version: [ 12, 18, 19 ]
+        node-version: [ 14, 18, 20 ]
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -71,9 +68,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Install rename
-        run: sudo apt-get install -y rename
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -89,7 +83,7 @@ jobs:
         run: yarn test
 
       - name: Codeclimate
-        uses: paambaati/codeclimate-action@v3.2.0
+        uses: paambaati/codeclimate-action@v4.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:

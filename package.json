@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "concurrently 'npm:build:*'",
-    "build:esm": "node ./src/scripts/build.cjs && rename -f 's/\\.js$/\\.mjs/' target/esm/*.js",
+    "build:esm": "node ./src/scripts/build.cjs",
     "build:cjs": "node ./src/scripts/build.cjs --cjs",
     "build:dts": "tsc --emitDeclarationOnly --outDir target/dts",
     "build:docs": "typedoc --options src/main/typedoc",
